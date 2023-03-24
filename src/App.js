@@ -23,7 +23,7 @@ function App() {
 //  const admin = useSelector((state) => state.user.currentUser.isAdmin);
 const admin = useSelector((state) => state.user.currentUser ? state.user.currentUser.isAdmin : null);
 
-console.log(admin)
+//console.log(admin)
 
   return (
     <Router>
