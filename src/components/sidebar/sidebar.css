@@ -1,0 +1,41 @@
+.sidebar{
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 50px);
+    background-color: rgd(251, 251, 255);
+    position: sticky;
+    top: 50px;
+    
+    
+    
+}
+
+.sidebarWrapper{
+    padding: 20px;
+    color: #555;
+}
+
+.sidebarTitle{
+    font-size: 20px;
+    color: rgb(187,186,186);
+}
+
+.sidebarList{
+    list-style: none;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.sidebarListItem{
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+   
+}
+
+.sidebarIcon{
+    margin-left: 5px;
+    font-size: 30px !important;
+}
