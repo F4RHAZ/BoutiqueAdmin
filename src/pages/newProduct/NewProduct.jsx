@@ -1,4 +1,6 @@
+import React from "react";
 import { useState } from "react";
+
 import "./newProduct.css";
 import {
   getStorage,
