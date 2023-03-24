@@ -1,6 +1,6 @@
+import React from 'react';
 import { useState, useEffect } from 'react';
 import { userRequest } from '../../requestMethods';
-
 
 function ProductImage({ productId }) {
   

@@ -11,7 +11,7 @@ const user = root ? root.user : null;
 const currentUser = user ? JSON.parse(user).currentUser : null;
 const TOKEN = currentUser ? currentUser.accesstoken : "";
 
-console.log(TOKEN);
+//console.log(TOKEN);
 
 export const publicRequest = axios.create({
   baseURL: BASE_URL,
