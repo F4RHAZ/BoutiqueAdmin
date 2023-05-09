@@ -63,6 +63,26 @@ export default function TransactionList() {
 
    
     { field: "total", headerName: "Total", width: 150 },
+    {
+      field: "discount",
+      headerName: "Discount",
+      width: 150,
+      renderCell: (params) => (
+        <span>
+          {params.row.discount
+            ? `${
+                params.row.discount.percentageOff
+                  ? params.row.discount.percentageOff + "%"
+                  : "0%" 
+              } ${
+                params.row.discount.amountOff
+                  ? " $" + params.row.discount.amountOff
+                  : " $0"
+              }`
+            : "-"}
+        </span>
+      ),
+    },
     { field: "delivery_status", headerName: "Delivery Status", width: 200 },
     { field: "payment_status", headerName: "Payment Status", width: 200 },
     {

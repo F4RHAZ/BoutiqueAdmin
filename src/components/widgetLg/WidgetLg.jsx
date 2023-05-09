@@ -58,6 +58,6 @@ export default function WidgetLg () {
         </tbody>
         </table>
       </div>
-
+ 
     );
 }

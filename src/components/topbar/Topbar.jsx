@@ -4,6 +4,8 @@ import { NotificationsNone, Language, Settings, ExitToApp } from "@material-ui/i
 import { logout } from "../../redux/userRedux";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import HomeIcon from '@material-ui/icons/Home';
+
 
 export default function Topbar (){
     const history = useNavigate();    
@@ -29,7 +31,7 @@ export default function Topbar (){
             </div>
             <div className="topRight">
                 <div className="topbarIconContainer">
-                    <NotificationsNone fontSize="large" />
+                    <HomeIcon fontSize="large" />
                     <span className="topIconBadge">
                         
                     </span>

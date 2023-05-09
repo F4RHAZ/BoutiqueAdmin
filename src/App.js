@@ -16,6 +16,7 @@ import MessageList from "./pages/messageList/MessageList";
 import Message from "./pages/message/Message";
 import NewProduct from './pages/newProduct/NewProduct';
 import Announcement from "./pages/announcement/Announcement";
+import Discount from "./pages/discount/Discount";
 import { useSelector } from "react-redux";
 
 
@@ -45,6 +46,7 @@ const admin = useSelector((state) => state.user.currentUser ? state.user.current
             <Route path="/messages" element={<MessageList/>}/>
             <Route path="/message/:firstUserId/:secondUserId" element={<Message/>}/>
             <Route path="/announcements" element={<Announcement/>}/>
+            <Route path ="/discount" element={<Discount/>}/>
           </>
         ) : (
           <Route path="/" element={<Login />} />

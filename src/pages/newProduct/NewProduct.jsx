@@ -50,6 +50,9 @@ export default function NewProduct() {
     const storage = getStorage(app);
     const productImages = [];
   
+    // Counter to keep track of successful uploads
+    let uploadCount = 0;
+  
     // Loop through selected files and upload each one
     for (let i = 0; i < file.length; i++) {
       const fileName = new Date().getTime() + file[i].name;
@@ -67,18 +70,35 @@ export default function NewProduct() {
         (error) => {
           // Handle unsuccessful uploads
           console.log(`Upload ${i+1} failed: ${error.message}`);
+  
+          // Add an error message to the productImages array
+          productImages.push(`Upload ${i+1} failed: ${error.message}`);
+  
+          // Check if all files have been uploaded
+          if (productImages.length === file.length) {
+            // Display error message to user
+            alert("Failed to upload all images. Please try again.");
+          }
         },
         () => {
           // Handle successful uploads on complete
           // For instance, get the download URL: https://firebasestorage.googleapis.com/...
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             productImages.push(downloadURL);
+            uploadCount++;
+  
             // When all files have been uploaded, add the product to the database with the uploaded images
-            if (productImages.length === file.length) {
+            if (uploadCount === file.length) {
               const product = { ...inputs, img: productImages };
-              addProduct(product, dispatch);
-              alert("productAdded")
-              //history.push('/products');
+  
+              // Use a try-catch block to catch any errors that occur during the database write operation
+              try {
+                addProduct(product, dispatch);
+                
+              } catch (error) {
+                console.log("Error adding product to database:", error);
+                alert("Failed to add product. Please try again.");
+              }
             }
           });
         }
@@ -108,7 +128,7 @@ export default function NewProduct() {
           <input
             name="title"
             type="text"
-            placeholder="Apple Airpods"
+            placeholder="Cloth Name"
             onChange={handleChange}
             required
           />

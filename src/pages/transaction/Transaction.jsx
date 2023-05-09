@@ -145,6 +145,13 @@ export default function Transaction() {
                   <label>Total</label>
                   $ {transaction && transaction.total}
                 </div>
+                {transaction && transaction.discount && (
+                  <div className="transactionUpdateItem">
+                    <label>Discount</label>
+                    {transaction.discount.percentageOff ? `${transaction.discount.percentageOff}%` : "0%"}  &emsp;
+                    {transaction.discount.percentageOff ? `${transaction.discount.amountOff}%` : "$0"} 
+                  </div>
+                )}
                 <div className="transactionUpdateItem">
                 <label>Paymnent status: {transaction && transaction.payment_status}</label>
                   
@@ -238,7 +245,7 @@ export default function Transaction() {
         
 
         {transaction.products && transaction.products.map((product) => (
-          <div className="productInfo">
+          <div className="productInfo" key={product._id}>
               <div className="transactionUpdateLeft">
                 <div className="productsItem">
                   <label>Product Id: </label>

@@ -24,6 +24,7 @@ export default function ProductList() {
   const handleDelete = (id) => {
     //setData(data.filter((item) => item.id !== id));
     deleteProduct(id,dispatch);
+    window.location.reload();
   };
 
   const columns = [

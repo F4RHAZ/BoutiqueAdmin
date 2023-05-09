@@ -15,6 +15,7 @@ import {
     Report,
 } from "@material-ui/icons";
 import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
+import LocalOfferIcon from '@material-ui/icons/LocalOffer';
 import { Link } from "react-router-dom";
 
 export default function Sidebar(){
@@ -82,6 +83,12 @@ export default function Sidebar(){
                             <li className="sidebarListItem">
                                 <RecordVoiceOverIcon className="sidebarIcon" fontSize="large" /> 
                                 Announcements
+                            </li>
+                        </Link>
+                        <Link to="/discount" className="link">
+                            <li className="sidebarListItem">
+                                <LocalOfferIcon className="sidebarIcon" fontSize="large" /> 
+                                Discounts
                             </li>
                         </Link>
                     </ul>

@@ -63,8 +63,11 @@ export const addProduct = async (product, dispatch) => {
   try {
     const res = await userRequest.post(`/products`, product);
     dispatch(addProductSuccess(res.data));
+    alert("Product added successfully")
+    
   } catch (err) {
     dispatch(addProductFailure());
+    alert("Product not added please try again ensure the product title is unique and your internet connection is sufficient to upload all files");
   }
 };
 
